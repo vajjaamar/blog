@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Home</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>All Blog Posts</h1>
+  <a href="/new-post">Create New Post</a>
+  <div class="posts">
+    <% posts.forEach(function(post) { %>
+      <div class="post">
+        <h2><a href="/post/<%= post._id %>"><%= post.title %></a></h2>
+        <p><%= post.description %></p>
+        <% if (post.image) { %>
+          <img src="<%= post.image %>" alt="<%= post.title %>">
+        <% } %>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>
